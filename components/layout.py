@@ -28,15 +28,27 @@ def render_hero() -> None:
 
 
 def render_empty_state() -> None:
-    with st.container(border=True):
-        st.markdown("### Ready to generate")
-        st.write(
-            "Paste a UNIR course URL, configure the visual parameters, "
-            "and click Generate Variables."
-        )
-        st.markdown(
-            ":green[Información específica]  ·  :blue[Características de grupo]"
-        )
+    st.markdown(
+        '<div class="instruction-grid">'
+        '<div class="instruction-card instruction-card--green">'
+        '<div class="instruction-card__number">01</div>'
+        '<div class="instruction-card__title">Información específica</div>'
+        '<div class="instruction-card__copy">'
+        'Bloque variable del prompt. Define actitud, acción, vestimenta y dirección artística. '
+        'Se marca en verde porque cambia según el enfoque visual de cada generación.'
+        '</div>'
+        '</div>'
+        '<div class="instruction-card instruction-card--blue">'
+        '<div class="instruction-card__number">02</div>'
+        '<div class="instruction-card__title">Características de grupo</div>'
+        '<div class="instruction-card__copy">'
+        'Bloque constante del curso. Define buyer persona, contexto, objetos, composición, identidad, materiales y atmósfera. '
+        'Se marca en azul porque sostiene la estructura base de la titulación.'
+        '</div>'
+        '</div>'
+        '</div>',
+        unsafe_allow_html=True,
+    )
 
 
 def render_course_pill(course_name: str) -> None:

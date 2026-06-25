@@ -327,19 +327,90 @@ p {
 }
 
 .empty-state {
-  border: 1px dashed var(--line);
-  border-radius: var(--radius-lg);
-  background: #FFFFFF;
-  padding: 22px;
+  border: none;
+  background: transparent;
+  padding: 0;
   text-align: left;
   color: var(--muted);
-  box-shadow: var(--shadow-card);
+  box-shadow: none;
 }
 
 .empty-state strong {
   color: var(--ink);
   display: block;
   margin-bottom: 6px;
+}
+
+/* Instruction cards */
+.instruction-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.instruction-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-card);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  animation: cardFadeIn .35s ease both;
+}
+
+.instruction-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.instruction-card--green {
+  border-left: 5px solid var(--green);
+}
+
+.instruction-card--blue {
+  border-left: 5px solid var(--blue);
+}
+
+.instruction-card__number {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.instruction-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.instruction-card--green .instruction-card__title {
+  color: var(--green);
+}
+
+.instruction-card--blue .instruction-card__title {
+  color: var(--blue);
+}
+
+.instruction-card__copy {
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Result cards */
@@ -421,6 +492,10 @@ hr {
 
   section[data-testid="stSidebar"] > div {
     width: auto !important;
+  }
+
+  .instruction-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>
