@@ -28,18 +28,15 @@ def render_hero() -> None:
 
 
 def render_empty_state() -> None:
-    st.markdown(
-        '<div class="empty-state">'
-        '<strong>Ready to generate.</strong>'
-        '<p>Paste a UNIR course URL, configure the visual parameters, and click '
-        '<strong>Generate Variables</strong>.</p>'
-        '<div class="empty-state-tags">'
-        '<span class="empty-state-tag empty-state-tag--green">Información específica</span>'
-        '<span class="empty-state-tag empty-state-tag--blue">Características de grupo</span>'
-        '</div>'
-        '</div>',
-        unsafe_allow_html=True,
-    )
+    with st.container(border=True):
+        st.markdown("### Ready to generate")
+        st.write(
+            "Paste a UNIR course URL, configure the visual parameters, "
+            "and click Generate Variables."
+        )
+        st.markdown(
+            ":green[Información específica]  ·  :blue[Características de grupo]"
+        )
 
 
 def render_course_pill(course_name: str) -> None:
