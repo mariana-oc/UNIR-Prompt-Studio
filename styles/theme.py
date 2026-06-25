@@ -28,10 +28,7 @@ html, body, [class*="css"] {
 }
 
 .stApp {
-  background:
-    radial-gradient(circle at top left, rgba(0, 51, 255, 0.10), transparent 34%),
-    radial-gradient(circle at top right, rgba(0, 51, 255, 0.07), transparent 30%),
-    var(--bg);
+  background: var(--bg);
 }
 
 [data-testid="stHeader"],
@@ -56,10 +53,10 @@ header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(248, 250, 252, 0.86);
+  background: rgba(248, 250, 252, 0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
-  padding: 10px 0;
+  padding: 8px 0;
   margin-bottom: 12px;
 }
 
@@ -89,7 +86,7 @@ header {
 }
 
 .sticky-header__title {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--ink);
 }
@@ -99,7 +96,7 @@ header {
 }
 
 .sticky-header__sub {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--muted);
 }
 
@@ -124,7 +121,7 @@ section[data-testid="stSidebar"] > div {
 }
 
 section[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
-  gap: 12px;
+  gap: 13px;
 }
 
 .sidebar-section-label {
@@ -134,6 +131,7 @@ section[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
   text-transform: uppercase;
   color: var(--blue);
   margin-top: 4px;
+  margin-bottom: -2px;
 }
 
 /* Type */
@@ -148,6 +146,12 @@ h1 {
 
 h2, h3, label {
   color: var(--ink) !important;
+}
+
+label {
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 6px !important;
 }
 
 p {
@@ -180,13 +184,23 @@ p {
 
 .stTextInput input,
 .stSelectbox [data-baseweb="select"] > div {
-  min-height: 46px !important;
+  min-height: 48px !important;
+  height: 48px !important;
+  padding: 0 16px !important;
+  line-height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.stTextInput input::placeholder {
+  color: #8A96BF !important;
+  line-height: 48px !important;
 }
 
 .stTextArea textarea {
-  min-height: 240px !important;
-  padding: 16px !important;
-  line-height: 1.65 !important;
+  min-height: 260px !important;
+  padding: 20px !important;
+  line-height: 1.75 !important;
   resize: vertical !important;
 }
 
@@ -237,16 +251,25 @@ p {
   width: 100%;
   border: 0 !important;
   border-radius: 999px !important;
-  min-height: 48px !important;
+  min-height: 50px !important;
   background: var(--blue) !important;
-  color: white !important;
+  color: #FFFFFF !important;
   font-weight: 700 !important;
   box-shadow: 0 12px 28px rgba(0, 51, 255, 0.22) !important;
 }
 
+.stButton > button * {
+  color: #FFFFFF !important;
+}
+
 .stButton > button:hover {
   background: var(--blue-hover) !important;
+  color: #FFFFFF !important;
   transform: translateY(-1px);
+}
+
+.stButton > button:hover * {
+  color: #FFFFFF !important;
 }
 
 /* Panels */
@@ -318,7 +341,7 @@ p {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .result-card-title-row {
@@ -359,13 +382,15 @@ p {
 [data-testid="column"]:has(.result-card-marker) .stTextArea textarea {
   min-height: 300px !important;
   font-size: 0.84rem !important;
-  line-height: 1.65 !important;
+  line-height: 1.75 !important;
+  padding: 20px !important;
 }
 
 /* Utility */
 hr {
   border: 0;
   border-top: 1px solid var(--line);
+  margin: 8px 0 !important;
 }
 
 @media (max-width: 1100px) {
