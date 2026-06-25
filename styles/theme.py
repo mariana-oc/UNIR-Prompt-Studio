@@ -39,13 +39,13 @@ header {
 }
 
 .block-container {
-  padding-top: 0.75rem;
+  padding-top: 0.2rem;
   padding-bottom: 2rem;
   max-width: 1280px;
 }
 
 [data-testid="stVerticalBlock"] {
-  gap: 18px;
+  gap: 16px;
 }
 
 /* Header */
@@ -53,11 +53,11 @@ header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(248, 250, 252, 0.92);
+  background: rgba(248, 250, 252, 0.94);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
   padding: 8px 0;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .sticky-header__inner {
@@ -105,23 +105,24 @@ section[data-testid="stSidebar"] {
   width: var(--sidebar-width) !important;
   min-width: var(--sidebar-width) !important;
   max-width: var(--sidebar-width) !important;
-  background: transparent !important;
-  border-right: 0 !important;
+  background: #FFFFFF !important;
+  border-right: 1px solid var(--line) !important;
   overflow-y: auto !important;
 }
 
 section[data-testid="stSidebar"] > div {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  margin: 12px;
-  padding: 18px;
-  width: calc(var(--sidebar-width) - 24px);
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 12px 18px 18px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 section[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
-  gap: 13px;
+  gap: 14px;
 }
 
 .sidebar-section-label {
@@ -130,7 +131,7 @@ section[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--blue);
-  margin-top: 4px;
+  margin-top: 2px;
   margin-bottom: -2px;
 }
 
@@ -180,6 +181,22 @@ p {
   font-size: 0.9rem !important;
   box-shadow: none !important;
   outline: none !important;
+  -webkit-appearance: none !important;
+}
+
+.stTextInput > div,
+.stSelectbox > div,
+.stTextArea > div,
+.stTextInput > div > div,
+.stSelectbox > div > div,
+.stTextArea > div > div,
+.stTextInput [data-baseweb="input"],
+.stSelectbox [data-baseweb="select"],
+.stTextArea [data-baseweb="textarea"] {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
 }
 
 .stTextInput input,
@@ -205,10 +222,13 @@ p {
 }
 
 .stTextInput input:focus,
+.stTextInput input:focus-visible,
 .stSelectbox [data-baseweb="select"]:focus-within > div,
-.stTextArea textarea:focus {
+.stTextArea textarea:focus,
+.stTextArea textarea:focus-visible {
+  outline: none !important;
   border-color: var(--blue) !important;
-  box-shadow: 0 0 0 4px var(--blue-glow) !important;
+  box-shadow: 0 0 0 3px var(--blue-glow) !important;
 }
 
 /* Target segmented control */
@@ -400,7 +420,7 @@ hr {
   }
 
   section[data-testid="stSidebar"] > div {
-    width: auto;
+    width: auto !important;
   }
 }
 </style>
